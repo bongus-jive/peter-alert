@@ -1,0 +1,11 @@
+{
+  "version" : "1.0",
+  "author" : "patman",
+  "tags" : "Miscellaneous|User Interface",
+  "description" : "the \"peter alert\" will randomly appear every few minutes\ntheres also a quickbar button to create them\n\nfor people who arent dumb you can send a \"PeterAlert.exe\" entity message to another player to make it appear for them, because yes\n\n[img]https://i.imgur.com/wXjYMqP.gif[/img]https://discord.gg/GdsQSgV\n[img]https://i.imgur.com/uyG8oTa.gif[/img]https://www.patreon.com/pathiccstar\n\n\nhttps://github.com/kokoscript/PeterAlert",
+  "name" : "peteralert",
+  "friendlyName" : "peter alert",
+  "steamContentId" : "2537536309",
+  "link" : "steam://url/CommunityFilePage/2537536309",
+  "includes" : ["StardustLib", "QuickbarMini"]
+}

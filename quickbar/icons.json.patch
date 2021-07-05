@@ -1,0 +1,11 @@
+[
+  {
+    "op": "add",
+    "path": "/items/patman:peteralert",
+    "value": {
+      "label": "PeterAlert.exe",
+      "icon": "/pat/peteralert/icon.png",
+      "action" : [ "exec", "/pat/peteralert/peteralert_open.lua" ]
+    }
+  }
+]
