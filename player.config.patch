@@ -1,7 +1,7 @@
 [
 	{
 		"op" : "add",
-		"path" : "/companionsConfig/scripts/-",
+    "path": "/genericScriptContexts/peteralert",
 		"value" : "/pat/peteralert/peteralert_player.lua"
 	}
 ]

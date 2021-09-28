@@ -29,7 +29,6 @@ function click(position, button, isButtonDown)
 		if not isButtonDown and lastButtonDown and inButton then
 			CLOSED = true
 			pane.dismiss()
-			sb.logInfo("%s, %s, %s", isButtonDown, lastButtonDown, inButton)
 		end
 		
 		lastButtonDown = isButtonDown
