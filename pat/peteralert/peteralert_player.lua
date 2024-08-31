@@ -1,25 +1,31 @@
-local peterAlerts = math.random(1, 8)
-local peterTimer = math.random(60, 120)
-
 function init()
+	PaneConfig = root.assetJson("/pat/peteralert/peteralert.config")
+	Position = PaneConfig.gui.panefeature.offset
+	Stack = math.random(PaneConfig.stackMax)
+
+	local minTime, maxTime = table.unpack(PaneConfig.timerRange)
+	function randomTimer() return math.random(minTime, maxTime) end
+	Timer = randomTimer()
+
+	script.setUpdateDelta(150)
 	message.setHandler("PeterAlert.exe", peterAlert)
 end
 
 function update(dt)
-	peterTimer = math.max(0, peterTimer - dt)
-	if peterTimer == 0 then
-		peterTimer = math.random(60, 120)
-		if math.random(1, 3) == 1 then
-			peterAlert()
-		end
+	Timer = Timer - dt
+	if Timer <= 0 then
+		Timer = randomTimer()
+		peterAlert()
 	end
 end
 
 function peterAlert()
-	peterAlerts = (peterAlerts + 1) % 8
-	local h = 8 * peterAlerts
-	
-	local peter = root.assetJson("/pat/peteralert/peteralert.config")
-	peter.gui.panefeature.offset = {24 + h, -40 - h}
-	player.interact("ScriptPane", peter)
+	Stack = (Stack + 1) % PaneConfig.stackMax
+
+	PaneConfig.gui.panefeature.offset = {
+		Position[1] + (PaneConfig.stackOffset[1] * Stack),
+		Position[2] + (PaneConfig.stackOffset[2] * Stack),
+	}
+
+	player.interact("ScriptPane", PaneConfig)
 end
