@@ -7,7 +7,7 @@ function init()
 	function randomTimer() return math.random(minTime, maxTime) end
 	Timer = randomTimer()
 
-	script.setUpdateDelta(150)
+	script.setUpdateDelta(PaneConfig.playerScriptDelta or 150)
 	message.setHandler("PeterAlert.exe", peterAlert)
 end
 
