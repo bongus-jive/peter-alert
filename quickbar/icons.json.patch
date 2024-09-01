@@ -8,7 +8,7 @@
       "action": [ "pane", { "type": "message", "config": { "messageType": "PeterAlert.exe", "messageArgs": [ ] } } ],
       "buttonImages": {
         "base": "/pat/peteralert/icon_base.png",
-        "hover": "/pat/peteralert/icon_base.png?brightness=100"
+        "hover": "/pat/peteralert/icon_base.png?brightness=60"
       }
     }
   }
