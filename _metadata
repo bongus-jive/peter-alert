@@ -1,11 +1,13 @@
 {
-  "version" : "1.2",
   "author" : "patman",
-  "tags" : "Miscellaneous|User Interface",
-  "description" : "the \"peter alert\" will randomly appear every few minutes\ntheres also a quickbar button to create them\n\nfor people who arent dumb you can send a \"PeterAlert.exe\" entity message to another player to make it appear for them, because yes\n\n[img]https://i.imgur.com/wXjYMqP.gif[/img]https://discord.gg/GdsQSgV\n[img]https://i.imgur.com/uyG8oTa.gif[/img]https://www.patreon.com/pathiccstar\n\n\nhttps://github.com/kokoscript/PeterAlert",
-  "name" : "peteralert",
-  "friendlyName" : "peter alert",
-  "steamContentId" : "2537536309",
+  "description" : "peter alert",
+  "friendlyName" : "PeterAlert.exe",
+  "includes" : ["StardustLib", "QuickbarMini"],
   "link" : "steam://url/CommunityFilePage/2537536309",
-  "includes" : ["StardustLib", "QuickbarMini"]
+  "name" : "peteralert",
+  "steamContentId" : "2537536309",
+  "steamDescription" : "makes a \"peter alert\" randomly appear every few minutes\ntheres also a quickbar button to create them\n\n[img]https://i.imgur.com/wXjYMqP.gif[/img]https://discord.gg/GdsQSgV\n[img]https://i.imgur.com/uyG8oTa.gif[/img]https://www.patreon.com/pathiccstar\n[img]https://i.imgur.com/xVfcRRH.gif[/img]https://ko-fi.com/patmanf\n[img]https://i.imgur.com/jJAj6jF.gif[/img]https://github.com/bongus-jive/peter-alert\n\ncool tip for people who arent dumb: send people 'PeterAlert.exe' entitymessages",
+  "steamTitle" : "Peter Alert",
+  "tags" : "Miscellaneous|User Interface",
+  "version" : "1.3"
 }
