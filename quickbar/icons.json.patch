@@ -5,7 +5,11 @@
     "value": {
       "label": "PeterAlert.exe",
       "icon": "/pat/peteralert/icon.png",
-      "action": [ "pane", { "type": "message", "config": { "messageType": "PeterAlert.exe", "messageArgs": [ ] } } ]
+      "action": [ "pane", { "type": "message", "config": { "messageType": "PeterAlert.exe", "messageArgs": [ ] } } ],
+      "buttonImages": {
+        "base": "/pat/peteralert/icon_base.png",
+        "hover": "/pat/peteralert/icon_base.png?brightness=100"
+      }
     }
   }
 ]
