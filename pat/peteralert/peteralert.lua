@@ -7,9 +7,10 @@ function init()
 	Sounds = config.getParameter("sounds")
 
 	setPressed(false)
-	
-	if not config.getParameter("reopened") then
+
+	if not config.getParameter("_reopened") and not getPaneData("playedOpenSound") then
 		playSound("open")
+		setPaneData("playedOpenSound", true)
 	end
 end
 
@@ -62,7 +63,17 @@ end
 
 function reopen()
 	local peter = config.getParameter("")
-	peter.reopened = true
+	peter._reopened = true
 	player.interact("ScriptPane", peter)
 end
 
+function getPaneData(key)
+	local data = widget.getData("_data") or {}
+	return data[key]
+end
+
+function setPaneData(key, value)
+	local data = widget.getData("_data") or {}
+	data[key] = value
+	widget.setData("_data", data)
+end
