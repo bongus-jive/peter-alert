@@ -1,47 +1,68 @@
 function init()
-	Canvas = widget.bindCanvas("ok")
+	Canvas = widget.bindCanvas("button")
 	CanvasSize = Canvas:size()
-	
-	draw()
+
+	BoxScale = config.getParameter("gui").box.scale or 1
+	ButtonImages = config.getParameter("buttonImages")
+	Sounds = config.getParameter("sounds")
+
+	setPressed(false)
 	
 	if not config.getParameter("reopened") then
-		pane.playSound("/pat/peteralert/open.ogg", 0, 0.75)
+		playSound("open")
 	end
 end
 
-function draw(pressed)
-	Canvas:clear()
-	Canvas:drawImage("/pat/peteralert/button"..(pressed and "_pressed.png" or ".png"), {0, 0}, 0.5)
-end
-
-function click(position, button, isButtonDown)
-	if button ~= 0 then return end
-	
-	local inButton = position[1] > 0 and position[1] <= CanvasSize[1] and position[2] > 0 and position[2] <= CanvasSize[2]
-	
-	if isButtonDown and inButton then
-		pane.playSound("/pat/peteralert/click.ogg", 0, 0.75)
+function click(mousePos, mouseButton, buttonDown)
+	if mouseButton ~= 0 then
+		return
 	end
 	
-	if not isButtonDown or inButton then
-		draw(isButtonDown)
-		
-		if not isButtonDown and lastButtonDown and inButton then
-			CLOSED = true
-			pane.dismiss()
+	if mousePos[1] <= 0 or mousePos[1] > CanvasSize[1]
+	or mousePos[2] <= 0 or mousePos[2] > CanvasSize[2] then
+		if ButtonPressing then
+			setPressed()
 		end
-		
-		lastButtonDown = isButtonDown
+		return
 	end
 	
-	lastPosition = position
-end
-
-function uninit()
-	if not CLOSED then
-		local peter = root.assetJson("/pat/peteralert/peteralert.config")
-		peter.gui.panefeature.offset = config.getParameter("gui").panefeature.offset
-		peter.reopened = true
-		player.interact("ScriptPane", peter)
+	if buttonDown then
+		setPressed(true)
+		playSound("click")
+	elseif ButtonPressing then
+		setPressed(false)
+		reopen = n
+		pane.dismiss()
 	end
 end
+
+function setPressed(pressed)
+	ButtonPressing = pressed
+	drawButton(pressed)
+end
+
+function drawButton(pressed)
+	local img = ButtonImages[pressed and "pressed" or "default"]
+	Canvas:clear()
+	Canvas:drawImage(img, {0, 0}, BoxScale)
+end
+
+function playSound(key)
+	local sound = Sounds[key]
+	if sound then
+		pane.playSound(sound.file, 0, sound.volume)
+	end
+end
+
+function dismissed()
+	if type(reopen) == "function" then
+		reopen()
+	end
+end
+
+function reopen()
+	local peter = config.getParameter("")
+	peter.reopened = true
+	player.interact("ScriptPane", peter)
+end
+
