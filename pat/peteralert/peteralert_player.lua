@@ -15,7 +15,10 @@ function update(dt)
 	Timer = Timer - dt
 	if Timer <= 0 then
 		Timer = randomTimer()
-		peterAlert()
+
+		if math.random() <= PaneConfig.alertChance then
+			peterAlert()
+		end
 	end
 end
 
