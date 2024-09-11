@@ -9,5 +9,6 @@
   "steamDescription" : "makes a \"peter alert\" randomly appear every few minutes\ntheres also a quickbar button to create them\n\n[img]https://i.imgur.com/wXjYMqP.gif[/img]https://discord.gg/GdsQSgV\n[img]https://i.imgur.com/uyG8oTa.gif[/img]https://www.patreon.com/pathiccstar\n[img]https://i.imgur.com/xVfcRRH.gif[/img]https://ko-fi.com/patmanf\n[img]https://i.imgur.com/jJAj6jF.gif[/img]https://github.com/bongus-jive/peter-alert\n\ncool tip for people who arent dumb: send people 'PeterAlert.exe' entitymessages",
   "steamTitle" : "Peter Alert",
   "tags" : "Miscellaneous|User Interface",
-  "version" : "1.3"
+  "version" : "1.3",
+  "permissions" : ["window"]
 }

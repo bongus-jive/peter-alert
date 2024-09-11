@@ -31,4 +31,8 @@ function peterAlert()
 	}
 
 	player.interact("ScriptPane", PaneConfig)
+
+	if window and window.flash then
+		pcall(function() window.flash("briefly") end)
+	end
 end
