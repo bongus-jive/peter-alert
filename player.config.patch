@@ -1,7 +1,7 @@
 [
-	{
-		"op" : "add",
+  {
+    "op" : "add",
     "path": "/genericScriptContexts/peteralert",
-		"value" : "/pat/peteralert/peteralert_player.lua"
-	}
+    "value" : "/pat/peteralert/peteralert_player.lua"
+  }
 ]
